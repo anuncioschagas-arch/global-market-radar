@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- SEO Primário -->
+<title>Global Market Radar | Cotação Bitcoin, USD/BRL e Score de Oportunidade em Tempo Real</title>
+<meta name="description" content="Acompanhe a cotação do Bitcoin (BTC), dólar (USD/BRL), score de oportunidade de compra, notícias do mercado financeiro e use a calculadora de Bitcoin. Análise de tendência, volatilidade e sentimento em tempo real.">
+<meta name="keywords" content="bitcoin, preço bitcoin, cotação btc, btc hoje, usd brl, dólar hoje, cotação dólar, radar de mercado, score de oportunidade, calculadora bitcoin, notícias bitcoin, criptomoedas, mercado financeiro, tendência bitcoin, volatilidade, sentimento de mercado, oportunidade de compra, global market radar">
+<meta name="author" content="Global Market Radar">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<link rel="canonical" href="https://globalmarketradar.com/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://globalmarketradar.com/">
+<meta property="og:title" content="Global Market Radar | Cotação Bitcoin e USD/BRL em Tempo Real">
+<meta property="og:description" content="Score de oportunidade, cotação BTC, dólar, notícias e calculadora de Bitcoin. Transforme dados de mercado em decisões melhores.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Global Market Radar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Global Market Radar | Bitcoin e USD/BRL">
+<meta name="twitter:description" content="Cotação em tempo real, score de oportunidade, notícias e calculadora de Bitcoin.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=1200&q=80">
+
+<!-- Favicon e tema -->
+<meta name="theme-color" content="#080b10">
+<meta name="msapplication-TileColor" content="#080b10">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>₿</text></svg>">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Global Market Radar",
+  "url": "https://globalmarketradar.com/",
+  "description": "Ferramenta de análise de mercado com cotação de Bitcoin, USD/BRL, score de oportunidade, notícias e calculadora de BTC em tempo real.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "BRL"
+  },
+  "inLanguage": "pt-BR",
+  "keywords": "bitcoin, cotação btc, usd brl, score de oportunidade, calculadora bitcoin, notícias mercado"
+}
+</script>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080b10;color:#edf2f7;font-family:Arial,Helvetica,sans-serif}
+main{max-width:1150px;margin:auto;padding:30px 20px}
+.top,.hero,.head{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.top{border-bottom:1px solid #252c35;padding-bottom:20px}
+.ey,.card>span{font-size:11px;letter-spacing:.14em;color:#8c98a7;text-transform:uppercase}
+.top h1{margin:6px 0;font-size:28px}
+.status{font-size:10px;color:#69d798}
+.hero{padding:32px 0}
+.hero h2{font-size:42px;max-width:650px;margin:10px 0;line-height:1.15}
+.lead{color:#a7b1bf;line-height:1.6;max-width:650px}
+.tabs{display:flex;gap:8px;margin-top:20px}
+.tabs button,.outline{background:#11161d;border:1px solid #303945;color:#b6c0cb;padding:10px 15px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .2s;font-size:14px}
+.tabs button:hover{border-color:#4a5568}
+.tabs .active{background:#edf2f7;color:#080b10}
+.tabs .active.btc-active{background:#f7931a;color:#fff;border-color:#f7931a}
+.btc-symbol{
+  width:22px;height:22px;
+  background:#f7931a;
+  border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:bold;font-size:13px;
+  box-shadow:0 0 0 2px rgba(247,147,26,.25);
+}
+.tabs .active .btc-symbol{
+  background:#fff;color:#f7931a;
+  box-shadow:none;
+}
+.score{min-width:275px;background:#0e131a;border:1px solid #29323d;border-radius:17px;padding:24px;display:flex;align-items:center;gap:18px;transition:border-color .3s}
+.ring{width:115px;height:115px;border:9px solid #69d798;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:border-color .3s}
+.ring b{font-size:40px}
+.signal{font-size:12px;font-weight:bold;padding:7px 10px;border-radius:7px;background:#143b29;color:#73dfa0;transition:all .3s}
+.grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+.card{background:#0d1218;border:1px solid #222a34;border-radius:14px;padding:20px}
+.value{display:block;font-size:28px;font-weight:bold;margin-top:9px}
+.green{color:#69d798}
+.orange{color:#f7931a}
+.muted{color:#6f7b89;font-size:12px}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:14px}
+.chart{height:270px}
+.chart svg{width:100%;height:100%}
+.bar{height:5px;background:#202731;border-radius:5px;overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;background:#69d798;border-radius:5px}
+.drow{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-bottom:4px}
+.drow span:last-child{color:#8c98a7;font-size:12px}
+.driver-item{margin-bottom:14px}
+.driver-item:last-child{margin-bottom:0}
+.news{margin-top:14px}
+.article{display:grid;grid-template-columns:55px 1fr 35px;gap:15px;align-items:center;border-top:1px solid #202731;padding:15px 0}
+.tag{border:1px solid #303945;border-radius:6px;text-align:center;padding:6px;font-size:10px;color:#9da8b5}
+.article b{font-size:13px}
+.article small{display:block;color:#687584;margin-top:5px}
+.impact{color:#69d798}
+.demo{color:#a7b1bf;font-size:12px;margin-top:10px}
+footer{display:flex;justify-content:space-between;color:#596573;font-size:11px;padding:28px 4px;border-top:1px solid #1a2028;margin-top:30px}
+
+/* BTC theme */
+body.btc-theme .ring{border-color:#f7931a}
+body.btc-theme .signal{background:#3d2a12;color:#f7931a}
+body.btc-theme .score{border-color:#3d2a12}
+body.btc-theme .green{color:#f7931a}
+body.btc-theme .impact{color:#f7931a}
+body.btc-theme .bar i{background:#f7931a}
+body.btc-theme .chart polyline{stroke:#f7931a}
+body.btc-theme .news .read{color:#f7931a}
+
+/* Calculadora */
+.calc-section{margin-top:14px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.calc-card{background:#0d1218;border:1px solid #222a34;border-radius:14px;padding:24px}
+.calc-card h3{margin:0 0 18px;font-size:18px}
+.calc-row{margin-bottom:16px}
+.calc-row label{display:block;font-size:12px;color:#8c98a7;margin-bottom:6px;letter-spacing:.05em}
+.calc-row input{
+  width:100%;padding:12px 14px;border-radius:8px;
+  background:#11161d;border:1px solid #303945;color:#edf2f7;
+  font-size:16px;font-weight:bold;
+}
+.calc-row input:focus{outline:none;border-color:#f7931a}
+.calc-result{
+  background:#0e131a;border:1px solid #29323d;border-radius:12px;
+  padding:18px;margin-top:8px;text-align:center;
+}
+.calc-result .total{font-size:32px;font-weight:bold;color:#f7931a;margin:6px 0}
+.calc-result .sub{font-size:13px;color:#8c98a7}
+.calc-result .brl{font-size:18px;color:#69d798;margin-top:4px}
+
+/* Fotos */
+.photos{margin-top:14px}
+.photos-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 14px 14px}
+.photo-card{background:#0d1218;border:1px solid #222a34;border-radius:14px;overflow:hidden}
+.photo-card img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .3s}
+.photo-card:hover img{transform:scale(1.03)}
+.photo-card .caption{padding:14px 16px;font-size:13px;color:#a7b1bf}
+.photo-card .caption b{display:block;color:#edf2f7;margin-bottom:4px;font-size:14px}
+
+.news a{color:#edf2f7;text-decoration:none}
+.news a:hover{text-decoration:underline}
+.news .summary{display:block;color:#a7b1bf;line-height:1.45;margin-top:6px;font-size:12px}
+.news .read{display:inline-block;margin-top:7px;color:#69d798;font-size:11px}
+
+@media(max-width:800px){
+  .top,.hero{flex-direction:column;align-items:flex-start}
+  .hero h2{font-size:32px}
+  .score{width:100%}
+  .grid,.two,.calc-grid,.photos-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+<main>
+<header class="top">
+  <div>
+    <div class="ey">GLOBAL MARKET RADAR</div>
+    <h1>Radar de Oportunidade de Mercado</h1>
+  </div>
+  <div class="status" id="status">● COTAÇÕES AO VIVO</div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="ey">ANÁLISE EM TEMPO REAL</div>
+    <h2>Cotação Bitcoin, Dólar e Score de Oportunidade</h2>
+    <p class="lead">Monitore a cotação do Bitcoin (BTC), o par USD/BRL, o sentimento do mercado e as notícias que movem os preços. Use o score de oportunidade e a calculadora para apoiar suas decisões.</p>
+    <div class="tabs">
+      <button id="usd" class="active" onclick="selectAsset('usd')" aria-label="Ver cotação USD/BRL">🇺🇸 USD/BRL</button>
+      <button id="btc" onclick="selectAsset('btc')" aria-label="Ver cotação Bitcoin">
+        <span class="btc-symbol">₿</span> BTC
+      </button>
+    </div>
+    <div class="demo">Dados atualizados automaticamente • Cotação Bitcoin e Dólar em tempo real</div>
+  </div>
+  <div class="score">
+    <div class="ring"><b id="score">78</b><small>/100</small></div>
+    <div>
+      <span id="signal" class="signal">COMPRAR</span>
+      <p class="muted">Score de oportunidade</p>
+    </div>
+  </div>
+</section>
+
+<section class="grid">
+  <div class="card">
+    <span id="pair">USD/BRL</span>
+    <strong id="price" class="value">5,42</strong>
+    <span id="change" class="green">+0,8%</span>
+    <p class="muted">cotação atual</p>
+  </div>
+  <div class="card">
+    <span>HORIZONTE</span>
+    <strong class="value">24–72h</strong>
+    <p class="muted">Prioriza sinais recentes</p>
+  </div>
+  <div class="card">
+    <span>CONFIANÇA</span>
+    <strong id="confidence" class="value">82%</strong>
+    <p class="muted">Concordância dos sinais</p>
+  </div>
+</section>
+
+<!-- CALCULADORA BTC -->
+<section class="calc-section" id="calculadora-bitcoin">
+  <div class="calc-card">
+    <div class="head" style="margin-bottom:8px">
+      <div>
+        <span>CALCULADORA BITCOIN</span>
+        <h3>Quanto vale meu Bitcoin?</h3>
+      </div>
+      <span class="btc-symbol" style="width:32px;height:32px;font-size:16px">₿</span>
+    </div>
+
+    <div class="calc-grid">
+      <div>
+        <div class="calc-row">
+          <label for="btcPrice">PREÇO DO BTC (USD)</label>
+          <input type="number" id="btcPrice" value="65000" min="0" step="0.01" oninput="calcBTC()" aria-label="Preço atual do Bitcoin em dólares">
+        </div>
+        <div class="calc-row">
+          <label for="btcQty">QUANTIDADE DE BTC</label>
+          <input type="number" id="btcQty" value="0.5" min="0" step="0.00000001" oninput="calcBTC()" aria-label="Quantidade de Bitcoin">
+        </div>
+        <p class="muted" style="margin-top:4px">Altere o preço ou a quantidade para calcular o valor total em tempo real.</p>
+      </div>
+
+      <div class="calc-result">
+        <div class="sub">VALOR TOTAL</div>
+        <div class="total" id="btcTotalUSD">$ 32.500,00</div>
+        <div class="brl" id="btcTotalBRL">≈ R$ 175.500,00</div>
+        <div class="sub" style="margin-top:10px">Cotação USD/BRL: <span id="usdBrlRate">5,40</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="two">
+  <div class="card">
+    <div class="head">
+      <div>
+        <span>OPORTUNIDADE</span>
+        <h3>Evolução do score</h3>
+      </div>
+      <b class="green" id="score-change">+7 pontos</b>
+    </div>
+    <div class="chart">
+      <svg viewBox="0 0 700 260" preserveAspectRatio="none" aria-hidden="true">
+        <polyline id="chart-line" fill="none" stroke="#69d798" stroke-width="4" points="20,180 125,165 230,150 335,162 440,125 545,105 680,55"/>
+        <line x1="20" y1="210" x2="680" y2="210" stroke="#252d37"/>
+      </svg>
+    </div>
+  </div>
+  <div class="card">
+    <span>DRIVERS</span>
+    <h3>O que está puxando o score</h3>
+    <div id="drivers"></div>
+  </div>
+</section>
+
+<!-- FOTOS -->
+<section class="photos" id="bitcoin-visual">
+  <div class="card" style="padding:0;overflow:hidden">
+    <div style="padding:20px 20px 10px">
+      <span>VISUAL</span>
+      <h3 style="margin:6px 0 0">Bitcoin e Mercado em Foco</h3>
+    </div>
+    <div class="photos-grid">
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=800&q=80" 
+             alt="Moeda física de Bitcoin representando a criptomoeda e o valor digital" 
+             loading="lazy" width="800" height="220">
+        <div class="caption">
+          <b>Bitcoin físico</b>
+          Representação clássica da criptomoeda — símbolo de escassez, valor e liberdade financeira.
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=80" 
+             alt="Gráficos e análise de mercado de criptomoedas e Bitcoin em tempo real" 
+             loading="lazy" width="800" height="220">
+        <div class="caption">
+          <b>Análise de mercado</b>
+          Gráficos, tendência e dados em tempo real — a base do Radar de Oportunidade.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="card news" id="noticias-mercado">
+  <div class="head">
+    <div>
+      <span>NEWS RADAR</span>
+      <h3>Notícias que movem o mercado</h3>
+    </div>
+    <button class="outline" onclick="toggleAlert(this)">＋ Criar alerta</button>
+  </div>
+  <div class="article">
+    <div class="tag">FED</div>
+    <div>
+      <b>Juros americanos e expectativa do Fed seguem dominando o mercado</b>
+      <small>Impacto estimado: USD + · BTC −</small>
+    </div>
+    <strong class="impact">+8</strong>
+  </div>
+  <div class="article">
+    <div class="tag">GEO</div>
+    <div>
+      <b>Tensões geopolíticas aumentam a busca por ativos defensivos</b>
+      <small>Impacto estimado: USD + · BTC ?</small>
+    </div>
+    <strong class="impact">+6</strong>
+  </div>
+  <div class="article">
+    <div class="tag">OIL</div>
+    <div>
+      <b>Petróleo elevado pode pressionar inflação global</b>
+      <small>Impacto estimado: USD + · BTC −</small>
+    </div>
+    <strong class="impact">+5</strong>
+  </div>
+  <div class="article">
+    <div class="tag">BTC</div>
+    <div>
+      <b>Bitcoin permanece sensível a liquidez e juros reais</b>
+      <small>Impacto estimado: USD ? · BTC −</small>
+    </div>
+    <strong class="impact">+4</strong>
+  </div>
+</section>
+
+<footer>
+  <span>Global Market Radar © 2026 — Análise de mercado, cotação Bitcoin e USD/BRL</span>
+  <span>Dados ao vivo • Versão 3.0</span>
+</footer>
+</main>
+
+<script>
+const FX = "https://open.er-api.com/v6/latest/USD";
+const BTC = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,brl&include_24hr_change=true";
+const NEWS = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.google.com%2Frss%2Fsearch%3Fq%3Dbitcoin%2BOR%2Bfed%2BOR%2Bdollar%26hl%3Den-US%26gl%3DUS%26ceid%3DUS%3Aen";
+
+let asset = "usd", data = {};
+let usdBrl = 5.40;
+
+const $ = id => document.getElementById(id);
+const fmt = (n, d = 2) => Number(n).toLocaleString("pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d });
+const fmtUSD = n => "$ " + Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+function calcBTC() {
+  const price = parseFloat($("btcPrice").value) || 0;
+  const qty = parseFloat($("btcQty").value) || 0;
+  const totalUSD = price * qty;
+  const totalBRL = totalUSD * usdBrl;
+
+  $("btcTotalUSD").textContent = fmtUSD(totalUSD);
+  $("btcTotalBRL").textContent = "≈ R$ " + fmt(totalBRL, 2);
+  $("usdBrlRate").textContent = fmt(usdBrl, 2);
+}
+
+function populateDrivers(score, assetType) {
+  const box = $("drivers");
+  if (!box) return;
+
+  // Drivers baseados no ativo e no score
+  const drivers = assetType === "btc" ? [
+    { name: "Liquidez global", value: Math.min(95, 55 + Math.round(score * 0.35)), label: "Alta" },
+    { name: "Juros reais (EUA)", value: Math.min(90, 40 + Math.round((100 - score) * 0.4)), label: score > 60 ? "Neutro" : "Pressão" },
+    { name: "Sentimento cripto", value: Math.min(92, 50 + Math.round(score * 0.4)), label: score >= 70 ? "Positivo" : "Misto" },
+    { name: "Volatilidade 24h", value: Math.min(85, 30 + Math.round(Math.abs(data.btc?.change || 0) * 3)), label: "Moderada" },
+    { name: "Fluxo de notícias", value: Math.min(88, 45 + (data.btc?.news || 3) * 6), label: "Ativo" }
+  ] : [
+    { name: "Diferença de juros", value: Math.min(90, 60 + Math.round(score * 0.25)), label: "Favorável" },
+    { name: "Risco fiscal BR", value: Math.min(85, 35 + Math.round((100 - score) * 0.3)), label: score > 65 ? "Controlado" : "Atenção" },
+    { name: "Fluxo cambial", value: Math.min(88, 50 + Math.round(score * 0.3)), label: "Entrada" },
+    { name: "Commodities", value: Math.min(80, 40 + Math.round(score * 0.2)), label: "Suporte" },
+    { name: "Sentimento mercado", value: Math.min(92, 55 + Math.round(score * 0.3)), label: score >= 70 ? "Otimista" : "Cauteloso" }
+  ];
+
+  box.innerHTML = drivers.map(d => `
+    <div class="driver-item">
+      <div class="drow">
+        <span>${d.name}</span>
+        <span>${d.label} · ${d.value}%</span>
+      </div>
+      <div class="bar"><i style="width:${d.value}%"></i></div>
+    </div>
+  `).join("");
+}
+
+function render() {
+  const d = data[asset];
+  if (!d) return;
+
+  $("pair").textContent = asset === "usd" ? "USD/BRL" : "BTC/USD";
+  $("price").textContent = fmt(d.price, asset === "usd" ? 2 : 0);
+  $("change").textContent = (d.change >= 0 ? "+" : "−") + Math.abs(d.change).toFixed(2).replace(".", ",") + "%";
+  $("change").className = d.change >= 0 ? (asset === "btc" ? "orange" : "green") : "muted";
+
+  const s = Math.max(25, Math.min(95, Math.round(asset === "usd" ? 72 - d.change * 2 : 55 - d.change * 1.5)));
+  $("score").textContent = s;
+  $("confidence").textContent = (65 + Math.min(25, (d.news || 0) * 3)) + "%";
+  $("signal").textContent = s >= 70 ? "COMPRAR" : s >= 50 ? "AGUARDAR" : "EVITAR";
+
+  populateDrivers(s, asset);
+}
+
+function selectAsset(a) {
+  asset = a;
+  $("usd").className = a === "usd" ? "active" : "";
+  $("btc").className = a === "btc" ? "active btc-active" : "";
+  document.body.classList.toggle("btc-theme", a === "btc");
+  const line = $("chart-line");
+  if (line) line.setAttribute("stroke", a === "btc" ? "#f7931a" : "#69d798");
+  render();
+}
+
+async function prices() {
+  try {
+    const [f, b] = await Promise.all([
+      fetch(FX).then(x => x.json()),
+      fetch(BTC).then(x => x.json())
+    ]);
+
+    usdBrl = f.rates.BRL;
+    data.usd = { price: f.rates.BRL, change: 0, news: data.usd?.news || 0 };
+    data.btc = { price: b.bitcoin.usd, change: b.bitcoin.usd_24h_change, news: data.btc?.news || 0 };
+
+    const priceInput = $("btcPrice");
+    if (document.activeElement !== priceInput) {
+      priceInput.value = Math.round(b.bitcoin.usd * 100) / 100;
+    }
+
+    $("status").textContent = "● DADOS AO VIVO";
+    render();
+    calcBTC();
+  } catch (e) {
+    $("status").textContent = "● SEM CONEXÃO";
+  }
+}
+
+async function news() {
+  try {
+    const r = await fetch(NEWS).then(x => x.json());
+    const box = document.querySelector(".news");
+    box.querySelectorAll(".article").forEach(x => x.remove());
+
+    (r.items || []).slice(0, 5).forEach(n => {
+      const title = n.title || "Notícia de mercado";
+      const source = n.author || (n.link ? new URL(n.link).hostname.replace("www.", "") : "Fonte");
+      const summary = `Esta notícia pode influenciar o mercado por meio de juros, liquidez, dólar, risco global ou sentimento dos investidores.`;
+      const el = document.createElement("div");
+      el.className = "article";
+      el.innerHTML = `
+        <div class="tag">NEWS</div>
+        <div>
+          <b><a href="${n.link}" target="_blank" rel="noopener noreferrer">${title}</a></b>
+          <small>${source} · ${new Date(n.pubDate).toLocaleString("pt-BR")}</small>
+          <span class="summary">${summary}</span>
+          <a class="read" href="${n.link}" target="_blank" rel="noopener noreferrer">Ler notícia original ↗</a>
+        </div>
+        <strong class="impact">↗</strong>
+      `;
+      box.appendChild(el);
+    });
+
+    data.usd.news = data.btc.news = (r.items || []).length;
+    render();
+  } catch (e) {}
+}
+
+function toggleAlert(b) {
+  b.textContent = b.textContent.includes("Criar") ? "✓ Alerta ativado" : "＋ Criar alerta";
+}
+
+selectAsset("usd");
+populateDrivers(72, "usd"); // drivers iniciais enquanto carrega
+prices();
+news();
+calcBTC();
+setInterval(prices, 60000);
+setInterval(news, 300000);
+</script>
+</body>
+</html>
