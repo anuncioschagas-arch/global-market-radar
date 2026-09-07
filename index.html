@@ -11,11 +11,11 @@
 <meta name="author" content="Global Market Radar">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow">
-<link rel="canonical" href="https://globalmarketradar.com/">
+<link rel="canonical" href="https://anuncioschagas-arch.github.io/global-market-radar/">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://globalmarketradar.com/">
+<meta property="og:url" content="https://anuncioschagas-arch.github.io/global-market-radar/">
 <meta property="og:title" content="Global Market Radar | Cotação Bitcoin e USD/BRL em Tempo Real">
 <meta property="og:description" content="Score de oportunidade, cotação BTC, dólar, notícias e calculadora de Bitcoin. Transforme dados de mercado em decisões melhores.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=1200&q=80">
@@ -39,7 +39,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Global Market Radar",
-  "url": "https://globalmarketradar.com/",
+  "url": "https://anuncioschagas-arch.github.io/global-market-radar/",
   "description": "Ferramenta de análise de mercado com cotação de Bitcoin, USD/BRL, score de oportunidade, notícias e calculadora de BTC em tempo real.",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Web",
@@ -109,6 +109,16 @@ main{max-width:1150px;margin:auto;padding:30px 20px}
 .impact{color:#69d798}
 .demo{color:#a7b1bf;font-size:12px;margin-top:10px}
 footer{display:flex;justify-content:space-between;color:#596573;font-size:11px;padding:28px 4px;border-top:1px solid #1a2028;margin-top:30px}
+.share-section{margin-top:20px;padding:20px;background:#0d1218;border:1px solid #222a34;border-radius:14px;text-align:center}
+.share-section h3{margin:0 0 12px;font-size:16px}
+.share-buttons{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:bold;text-decoration:none;color:#fff;transition:opacity .2s}
+.share-btn:hover{opacity:.85}
+.share-btn.whatsapp{background:#25D366}
+.share-btn.telegram{background:#0088cc}
+.share-btn.twitter{background:#1DA1F2}
+.share-btn.linkedin{background:#0A66C2}
+.share-btn.copy{background:#303945;color:#edf2f7;border:1px solid #4a5568;cursor:pointer}
 
 /* BTC theme */
 body.btc-theme .ring{border-color:#f7931a}
@@ -344,9 +354,20 @@ body.btc-theme .news .read{color:#f7931a}
   </div>
 </section>
 
+<section class="share-section">
+  <h3>Compartilhe o Radar</h3>
+  <div class="share-buttons">
+    <a class="share-btn whatsapp" href="https://wa.me/?text=Confira%20o%20Global%20Market%20Radar%20-%20Cota%C3%A7%C3%A3o%20Bitcoin%2C%20USD%2FBRL%20e%20Score%20de%20Oportunidade%20em%20tempo%20real%3A%20https%3A%2F%2Fanuncioschagas-arch.github.io%2Fglobal-market-radar%2F" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="share-btn telegram" href="https://t.me/share/url?url=https%3A%2F%2Fanuncioschagas-arch.github.io%2Fglobal-market-radar%2F&text=Global%20Market%20Radar%20-%20Cota%C3%A7%C3%A3o%20Bitcoin%20e%20Score%20de%20Oportunidade" target="_blank" rel="noopener">Telegram</a>
+    <a class="share-btn twitter" href="https://twitter.com/intent/tweet?text=Global%20Market%20Radar%20%E2%80%94%20Cota%C3%A7%C3%A3o%20Bitcoin%2C%20USD%2FBRL%20e%20Score%20de%20Oportunidade%20em%20tempo%20real&url=https%3A%2F%2Fanuncioschagas-arch.github.io%2Fglobal-market-radar%2F" target="_blank" rel="noopener">X / Twitter</a>
+    <a class="share-btn linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fanuncioschagas-arch.github.io%2Fglobal-market-radar%2F" target="_blank" rel="noopener">LinkedIn</a>
+    <button class="share-btn copy" onclick="copyLink()">Copiar link</button>
+  </div>
+</section>
+
 <footer>
   <span>Global Market Radar © 2026 — Análise de mercado, cotação Bitcoin e USD/BRL</span>
-  <span>Dados ao vivo • Versão 3.0</span>
+  <span>Dados ao vivo • Versão 3.1</span>
 </footer>
 </main>
 
@@ -377,7 +398,6 @@ function populateDrivers(score, assetType) {
   const box = $("drivers");
   if (!box) return;
 
-  // Drivers baseados no ativo e no score
   const drivers = assetType === "btc" ? [
     { name: "Liquidez global", value: Math.min(95, 55 + Math.round(score * 0.35)), label: "Alta" },
     { name: "Juros reais (EUA)", value: Math.min(90, 40 + Math.round((100 - score) * 0.4)), label: score > 60 ? "Neutro" : "Pressão" },
@@ -488,8 +508,20 @@ function toggleAlert(b) {
   b.textContent = b.textContent.includes("Criar") ? "✓ Alerta ativado" : "＋ Criar alerta";
 }
 
+function copyLink() {
+  const url = "https://anuncioschagas-arch.github.io/global-market-radar/";
+  navigator.clipboard.writeText(url).then(() => {
+    const btn = document.querySelector(".share-btn.copy");
+    if (btn) {
+      const old = btn.textContent;
+      btn.textContent = "✓ Link copiado!";
+      setTimeout(() => btn.textContent = old, 2000);
+    }
+  });
+}
+
 selectAsset("usd");
-populateDrivers(72, "usd"); // drivers iniciais enquanto carrega
+populateDrivers(72, "usd");
 prices();
 news();
 calcBTC();
