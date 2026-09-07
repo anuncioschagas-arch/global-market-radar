@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anuncioschagas-arch.github.io/global-market-radar/sitemap.xml
