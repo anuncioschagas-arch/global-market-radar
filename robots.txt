@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://anuncioschagas-arch.github.io/global-market-radar/sitemap.xml
+Sitemap: https://subtle-centaur-543e73.netlify.app/sitemap.xml
